@@ -2,13 +2,13 @@
 
 //Defining number of actuators and stroke limits
 #define numMotor 6
-#define minStroke 100
+#define minStroke 50
 #define maxStroke 4000
 
 //Defining direction port, TX high/low
-#define dir_1 2
-#define dir_2 3
-#define dir_3 4
+#define dir_1 28
+#define dir_2 30
+#define dir_3 32
 
 //=============
 
@@ -26,9 +26,9 @@ int row = 0;
 
 
 // Defining communication port and command for the actuators
-MightyZap m_zap(&Serial1, dir_1, HIGH);   // TX:18 RX: 19, Direction pin: 2, TX HIGH to send
-MightyZap m_zap2(&Serial2, dir_2, HIGH); // TX:16 RX: 17, Direction pin: 3, TX HIGH to send
-MightyZap m_zap3(&Serial3, dir_3, HIGH); // TX:14 RX: 15, Direction pin: 4, TX HIGH to send
+MightyZap m_zap(&Serial1, dir_1, HIGH);   // TX:18 RX: 19, Direction pin: 28, TX HIGH to send
+MightyZap m_zap2(&Serial2, dir_2, HIGH); // TX:16 RX: 17, Direction pin: 30, TX HIGH to send
+MightyZap m_zap3(&Serial3, dir_3, HIGH); // TX:14 RX: 15, Direction pin: 32, TX HIGH to send
 
 //=============
 
@@ -97,7 +97,7 @@ void inputConv( ) {
   // Serial.print("<");Serial.print("Reaced inputConv( )");Serial.println(">"); // Debugging text
   for (int count = 0; count < numMotor ; count++){
     actGoal[count] = map(path[count], 0, 96, minStroke, maxStroke);
-  if (actGoal[count] < maxStroke  && actGoal[count] > minStroke) {
+  if (actGoal[count] <= maxStroke  && actGoal[count] >= minStroke) {
     }
     else {
       stopAct();

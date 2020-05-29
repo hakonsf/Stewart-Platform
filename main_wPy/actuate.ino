@@ -20,10 +20,9 @@ void startSequence( ) {
 
   uint16_t startPos = map(48, 0, 96, minStroke, maxStroke);
   
-  for (int count = 0; count < 2; count++) {
-    m_zap.goalPosition(count, startPos);
-    // Serial.print("<");Serial.print("Act: ");Serial.print(count);Serial.print("| Pos: ");Serial.print(actGoal[count]);Serial.println(">"); // Debugging text
-  }
+  m_zap.goalPosition(6, startPos);
+  m_zap.goalPosition(1, startPos);
+   
   for (int count = 2; count < 4; count++) {
     m_zap2.goalPosition(count, startPos);
    // Serial.print("<");Serial.print("Act: ");Serial.print(count);Serial.print("| Pos: ");Serial.print(actGoal[count]);Serial.println(">"); // Debugging text
