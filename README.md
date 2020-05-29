@@ -1,5 +1,7 @@
 # Stewart-Platform
 
+A demonstration video can be found on: https://www.youtube.com/watch?v=Bavmap7hRA0
+
 calkKinematics contains all the Python code.
 main_wPy contains all the Arduino code.
 
